@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    html,body{
+      height: 100%;
+      background: gray;
+    }
+      .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      #form *{
+        margin: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      a{
+        color:white;
+        font-family: cursive;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+
+    <form onsubmit="event.preventDefault(); check();" id="form" class="form-horizontal" action="search.php" method="get">
+      <a class="btn btn-warning" href="script.php">Regenerate documents</a>
+      <div class="form-group">
+        <input id="search" type="search" placeholder="Search" class="form-control" name="search"/>
+        <input id="query" type="hidden" name="query"/>
+      </div>
+      <div>
+
+        <span id="error" class="text-danger"></span>
+      </div>
+    </form>
+  </div>
+    <script>
+      function check() {
+        if(!/^<[A-Ea-e](:0\.\d+)?(;[A-Ea-e](:0\.\d+)?)*>$/.test(document.getElementById('search').value.replace(/[\s]+/g, ''))){
+          document.getElementById('error').innerHTML = "Error in query <br /> You have to write it like <br /> &lt;A:0.1;B:0.2&gt; <br  /> and use only from A to E alphapet";
+          return false;
+        }
+        document.getElementById('query').value = document.getElementById('search').value.replace(/[><\s]+/g, '');
+        document.getElementById('form').submit();
+      }
+    </script>
+  </body>
+</html>
