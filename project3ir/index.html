@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+
+    <form onsubmit="event.preventDefault(); check();" id="form" class="form-horizontal" action="querysearch.php" method="get">
+      <a class="btn btn-warning" href="generateFiles.php">Regenerate documents</a>
+      <div class="form-group">
+        <input id="search" type="search" placeholder="Search" class="form-control" />
+        <input id="query" type="hidden" name="query"/>
+      </div>
+      <div>
+
+        <span id="error" class="text-danger"></span>
+      </div>
+    </form>
+  </div>
+    <script>
+      function check() {
+        if(!/^[A-Ea-e]*$/.test(document.getElementById('search').value.replace(/[\s]+/g, ''))){
+          document.getElementById('error').innerHTML = "Enter alphabets from A to E only";
+
+          return false;
+        }
+        document.getElementById('query').value = document.getElementById('search').value.replace(/[><\s]+/g, '');
+        document.getElementById('form').submit();
+      }
+    </script>
+  </body>
+</html>

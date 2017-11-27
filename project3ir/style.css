@@ -1,0 +1,25 @@
+html,body{
+    /* height: 100%; */
+    background: #34495e;
+    padding: 3px;
+  }
+    .flex{
+      /* display: flex;
+      justify-content: center;
+      align-items: center; 
+      height: 100%; */
+      color: white;
+      font-size: 16px;
+    }
+    /* #form *{
+      margin: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    a{
+      color:white;
+      font-family: cursive;
+      font-weight: bold;
+      text-decoration: none;
+    } */
